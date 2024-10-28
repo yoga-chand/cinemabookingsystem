@@ -36,7 +36,7 @@ public class GicBookingSystem {
             }
             List<SeatsDto> selectedSeatsList = bookingService.allocateSeats(bookingSetupDto, numTickets, bookingSetupDto.getSeatsAvailable());
             if (!selectedSeatsList.isEmpty()) {
-                BookingDetailsDto bookingDetailsDto = bookingService.bookTickets(bookingDetailsDtoList.size(), selectedSeatsList, bookingSetupDto);
+                BookingDetailsDto bookingDetailsDto = bookingService.bookTickets(bookingDetailsDtoList.size(), selectedSeatsList, numTickets, bookingSetupDto);
                 bookingDetailsDtoList.add(bookingDetailsDto);
             } else {
                 System.out.println("Unable to allocate seats. Try again.");

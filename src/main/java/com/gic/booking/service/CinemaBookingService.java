@@ -41,11 +41,11 @@ public class CinemaBookingService implements BookingService {
         }
 
     @Override
-    public BookingDetailsDto bookTickets(int existingBookingCount, List<SeatsDto> allocatedSeatsList, BookingSetupDto bookingSetupDto) {
+    public BookingDetailsDto bookTickets(int existingBookingCount, List<SeatsDto> allocatedSeatsList, int numTickets, BookingSetupDto bookingSetupDto) {
         existingBookingCount++;
         BookingDetailsDto bookingDetailsDto = new BookingDetailsDto(existingBookingCount, allocatedSeatsList);
         BookingUtils.updateSeatingMap(allocatedSeatsList, bookingSetupDto);
-        System.out.println("Successfully reserved " + allocatedSeatsList.size() + " " + bookingSetupDto.getMovieTitle() + " tickets.");
+        System.out.println("Successfully reserved " + numTickets + " " + bookingSetupDto.getMovieTitle() + " tickets.");
         System.out.println("Booking id: " + existingBookingCount);
         BookingUtils.displayBookedSeats(bookingSetupDto);
         return bookingDetailsDto;

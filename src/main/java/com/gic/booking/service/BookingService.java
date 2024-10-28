@@ -9,7 +9,7 @@ import java.util.List;
 public interface BookingService {
 
     List<SeatsDto> allocateSeats(BookingSetupDto bookingSetupDto, int numberOfTickets, int seatsAvailable);
-    BookingDetailsDto bookTickets(int existingBookingCount, List<SeatsDto> allocatedSeatsList, BookingSetupDto bookingSetupDto);
+    BookingDetailsDto bookTickets(int existingBookingCount, List<SeatsDto> allocatedSeatsList, int numTickets, BookingSetupDto bookingSetupDto);
 
     void checkBookings(List<BookingDetailsDto> bookingDetailsDtoList);
 
