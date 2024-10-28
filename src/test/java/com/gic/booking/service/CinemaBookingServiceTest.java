@@ -42,7 +42,7 @@ public class CinemaBookingServiceTest {
     @Test
     public void testBookTickets() {
         List<SeatsDto> allocatedSeats = cinemaBookingService.allocateSeats(bookingSetupDto, 2, 50);
-        BookingDetailsDto bookingDetails = cinemaBookingService.bookTickets(0, allocatedSeats, bookingSetupDto);
+        BookingDetailsDto bookingDetails = cinemaBookingService.bookTickets(0, allocatedSeats,2, bookingSetupDto);
         assertNotNull(bookingDetails);
         assertEquals(1, bookingDetails.getBookingId());
         assertEquals(allocatedSeats.size(), bookingDetails.getSeats().size());
@@ -58,7 +58,7 @@ public class CinemaBookingServiceTest {
     public void testCheckBookings_WithBookings() {
         List<BookingDetailsDto> bookingDetailsList = new ArrayList<>();
         List<SeatsDto> allocatedSeats = cinemaBookingService.allocateSeats(bookingSetupDto, 3, 50);
-        BookingDetailsDto bookingDetails = cinemaBookingService.bookTickets(0, allocatedSeats, bookingSetupDto);
+        BookingDetailsDto bookingDetails = cinemaBookingService.bookTickets(0, allocatedSeats, 3, bookingSetupDto);
         bookingDetailsList.add(bookingDetails);
 
         cinemaBookingService.checkBookings(bookingDetailsList);
